@@ -1,0 +1,17 @@
+{
+  "name": "botathon-2026-cada-hora-cuenta",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MVP de planificación asistencial Teletón - Botathon 2026",
+  "scripts": {
+    "db:link": "supabase link --project-ref $SUPABASE_PROJECT_REF",
+    "db:push": "supabase db push --remote",
+    "db:diff": "supabase db diff",
+    "db:lint": "supabase db lint --remote",
+    "db:seed": "supabase db push --include-seed --remote",
+    "test:smoke": "bash scripts/smoke-test.sh"
+  },
+  "devDependencies": {
+    "supabase": "^3.0.0"
+  }
+}
