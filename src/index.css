@@ -1,0 +1,160 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', 'Segoe UI', 'Helvetica Neue', system-ui, -apple-system,
+    sans-serif;
+
+  /* Paleta: blanco, rojo y negro */
+  --color-canvas: #f5f5f5;
+  --color-surface: #ffffff;
+  --color-soft: #fafafa;
+  --color-ink: #111111;
+  --color-muted: #5f5f5f;
+  --color-line: #e3e3e3;
+  --color-line-strong: #cfcfcf;
+
+  /* Negro (barra lateral, login, fondos oscuros) */
+  --color-navy: #111111;
+  --color-navy-700: #1f1f1f;
+  --color-navy-600: #2e2e2e;
+
+  /* Rojo de marca (el tono principal es brand-600/700) */
+  --color-brand-50: #fff1f2;
+  --color-brand-100: #ffe0e2;
+  --color-brand-200: #ffc2c6;
+  --color-brand-300: #ff8e96;
+  --color-brand-400: #f5535e;
+  --color-brand-500: #ec2431;
+  --color-brand-600: #e30613;
+  --color-brand-700: #c80511;
+  --color-brand-800: #a3040e;
+  --color-brand-900: #82050e;
+  --color-brand-950: #3b0307;
+
+  /* Estados del semáforo: verde y ámbar se mantienen; "alerta" usa un
+     rojo más oscuro que el de marca y siempre va con icono y etiqueta. */
+  --color-success: #0f9f6e;
+  --color-success-soft: #e8f8f1;
+  --color-success-strong: #087a53;
+  --color-warning: #b97c15;
+  --color-warning-soft: #fff7e6;
+  --color-warning-strong: #8d5d0c;
+  --color-danger: #9a1b25;
+  --color-danger-soft: #fdecee;
+  --color-danger-strong: #7a121b;
+  --color-info: #404040;
+  --color-info-soft: #f2f2f2;
+
+  --shadow-card: 0 1px 2px rgba(17, 17, 17, 0.05),
+    0 14px 32px -24px rgba(17, 17, 17, 0.3);
+  --shadow-float: 0 24px 60px -24px rgba(17, 17, 17, 0.4);
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    min-height: 100dvh;
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.02em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-500);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-brand-200);
+    color: var(--color-brand-950);
+  }
+
+  button,
+  select,
+  input,
+  textarea {
+    font: inherit;
+  }
+
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']) {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .card-base {
+    border: 1px solid var(--color-line);
+    border-radius: 1rem;
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-card);
+  }
+
+  .scrollbar-sutil {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-line-strong) transparent;
+  }
+
+  .scrollbar-sutil::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+
+  .scrollbar-sutil::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background-color: var(--color-line-strong);
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-aparecer {
+  animation: aparecer 0.28s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+  }
+}
