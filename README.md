@@ -242,3 +242,15 @@ Siguiente iteración:
   muestran completos; con más volumen conviene paginar).
 - Reglas de negocio adicionales por cargo o jornada si el organismo las define.
 - Pruebas E2E de navegación y descarga en navegador real.
+
+## Logo y paleta
+
+- **Paleta:** rojo y blanco. Los colores están definidos en `src/index.css`
+  (tokens), `src/lib/chartColors.ts` (gráficos) y en `src/lib/export/`
+  (PDF y Excel). El verde y el ámbar solo se usan en el semáforo de estados,
+  siempre junto a un icono y una etiqueta de texto.
+- **Logo:** guarda la imagen en `public/logo-teleton.png` (PNG con fondo
+  transparente o blanco). Se muestra en la barra lateral y en el login sobre
+  una pastilla blanca. Si el archivo no existe, se muestra el texto "Teletón".
+  Usa solo un logo que tengas autorización para utilizar. La ruta y el texto
+  alternativo se cambian en `src/config/app.ts`.
