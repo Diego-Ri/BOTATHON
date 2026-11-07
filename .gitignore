@@ -1,26 +1,7 @@
-# Secretos locales
-.env
+node_modules
+dist
+dist-ssr
+coverage
+*.local
 .env.local
-.env.*.local
-
-# Supabase CLI
-supabase/.temp/
-supabase/.branches/
-supabase/.env
-.branches/
-
-# Node
-node_modules/
-npm-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# Editor / SO
 .DS_Store
-Thumbs.db
-.vscode/
-.idea/
-
-# Logs y temporales
-*.log
-tmp/
